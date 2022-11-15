@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.activitysample.ui.adapter.UtilAdapter" />
+
+        <variable
+            name="country"
+            type="com.example.activitysample.data.model.Country" />
+
+        <variable
+            name="text123"
+            type="String" />
+
+        <variable
+            name="link"
+            type="String" />
+
+        <variable
+            name="submit"
+            type="long" />
+        
+        <variable
+            name="handler"
+            type="com.example.activitysample.ui.main.home.HomeFragment.MyClickHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/txt_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            app:text="@{text123}"
+            tools:text="position" />
+
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{country.ID}"
+            tools:text="line 1" />
+
+        <TextView
+            android:id="@+id/txt_localizedName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{country.localizedName}"
+            tools:text="line 2" />
+
+        <TextView
+            android:id="@+id/txt_englishName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{country.englishName}"
+            tools:text="line 3" />
+
+        <TextView
+            android:id="@+id/txt_longCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{UtilAdapter.convertToSuffix(submit)}"
+            tools:text="line 3" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            bind:imageUrl="@{link}" />
+
+        <Button
+            android:id="@+id/btn_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="demo handler"
+            android:textSize="11sp"
+            android:onClick="@{handler::onProfileImageLongPressed"/>
+
+
+    </LinearLayout>
+</layout>
